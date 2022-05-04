@@ -1,43 +1,37 @@
-import React from "react"
-import Image  from "next/image"
-import { Col } from "react-bootstrap"
-import { myConfig } from "../../config"
-import {JobInterface} from '../../types'
+import React from "react";
+import Image from "next/image";
+import { myConfig } from "../../config";
+import { JobInterface } from "../../types";
 
-
-const Job : React.FunctionComponent<{job: JobInterface}> = ({ job })=>{
+const Job: React.FunctionComponent<{ job: JobInterface }> = ({ job }) => {
   return (
-    <>
-      <Col xs={6} sm={4} md={4} xl={3} >
-        <a
-          className="custom-cart"
-          target="_blank"
-          href={job.url}
-          data-toggle="tooltip"
-          data-placement="bottom"
-          rel="noreferrer"
-          title={`${job.title} - ${job.domain}`}
-        >
-          <div className="custom-cart-image">
-            <Image
-              className="img-fluid"
-              layout='fill'
-              src={job.image}
-            />
-          </div>
-          <div className="custom-cart-footer p-1">
-            <div className="mt-1 text-xmedium">{job.title}</div>
+    <a
+      target="_blank"
+      href={job.url}
+      data-toggle="tooltip"
+      data-placement="bottom"
+      rel="noreferrer"
+      title={`${job.title} - ${job.domain}`}
+    >
+      <div className="shadow-md hover:shadow-lg rounded-2xl p-4 bg-white relative overflow-hidden h-90 w-full cursor-pointer m-auto">
+        <img
+          alt=""
+          // job.image
+          // "https://images.unsplash.com/photo-1635002962487-2c1d4d2f63c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8ZGlnaXRhbCUyMGFydHxlbnwwfDJ8MHx8&auto=format&fit=crop&w=800&q=60"
+          
+          src={myConfig.Base_URL + job.image}
+          className="rounded-lg mb-4 h-56 w-100"
+        />
+        <div className="w-4/4">
+          <p className="text-gray-800 text-lg font-medium mb-2">{job.title}</p>
 
-            <div className=" text-small">{job.domain}</div>
-
-            <div className="mt-1 text-left text-medium text-secondary">
-              {job.description}
-            </div>
-          </div>
-        </a>
-      </Col>
-    </>
+          <p className="text-gray-400 text-xs">{job.domain}</p>
+          <p className="text-gray-400 text-xs">{job.description}</p>
+          <p className="text-indigo-500 text-md font-medium mt-4">مشاهده</p>
+        </div>
+      </div>
+    </a>
   );
-}
+};
 
 export default Job;

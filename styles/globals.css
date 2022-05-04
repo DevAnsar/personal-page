@@ -16,6 +16,9 @@ a {
 }
 
 @import url("./fonts.css");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 .skill-icons {
   color: white;
@@ -105,7 +108,7 @@ a:link {
   text-decoration: none !important;
 }
 #template {
-  background-color: black;
+  /* background-color: rgb(60 65 64 / 31%); */
   min-height: 100vh;
 }
 
@@ -120,9 +123,9 @@ a:link {
   font-size: 16px;
 }
 
-* {
+/* * {
   color: white;
-}
+} */
 
 .full-box {
   max-height: 100% !important;
@@ -181,39 +184,6 @@ a:link {
 
 .footer-list li {
   float: right;
-}
-
-.custom-cart {
-  margin-bottom: 20px;
-  /* padding: 5px; */
-  border: 2px solid #fff;
-  box-shadow: 0 0 16px 2px #ffffff38;
-  border-radius: 17px;
-  display: inline-block;
-  width: 100%;
-  overflow: hidden;
-}
-
-.custom-cart-footer {
-  width: 100% !important;
-  height: 110px;
-}
-.custom-cart-image {
-  width: 100% !important;
-  min-height: 170px;
-  max-height: 170px;
-  overflow: hidden;
-}
-.custom-cart .custom-cart-image > img {
-  width: 100%;
-}
-
-.custom-cart:hover {
-  box-shadow: 0 0 8px 1px #fff;
-}
-
-.title-middle {
-  color: #ffffff;
 }
 
 .balance {
