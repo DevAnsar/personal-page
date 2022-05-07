@@ -1,4 +1,3 @@
-import Image from 'next/image';
 
 export const maker = (text: string) => {
   const arr = text.trim().split("\n");
@@ -7,7 +6,7 @@ export const maker = (text: string) => {
       <>
       {arr.map((r,index)=>{
           return(
-            <p className="text-md text-gray-800" key={index}>{r}</p>
+            <p className="text-lg text-gray-700 dark:text-gray-200" key={index}>{r}</p>
           )
       })}
       </>

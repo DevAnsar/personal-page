@@ -18,7 +18,7 @@ export const DataSkeleton = (props: DataSkeletonTypes) => {
       </div>
     );
   };
-  console.log('props.skeletonData',props.skeletonData);
+  // console.log('props.skeletonData',props.skeletonData);
   return (
 
     <>

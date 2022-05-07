@@ -5,7 +5,7 @@ import { BlogInterface } from "./../../types";
 import { DataSkeleton, ImageSkeleton } from "./Skeleton";
 
 export const BlogCard = (data: BlogInterface) => {
-  console.log(data);
+  // console.log(data);
   return (
     <div className="overflow-hidden shadow-md hover:shadow-lg rounded-xl md:rounded-3xl h-90 w-full cursor-pointer m-auto">
       <Link href="/blogs/[slug]" as={`/blogs/${data.slug}`}>
@@ -28,7 +28,7 @@ export const BlogCard = (data: BlogInterface) => {
               }
               skeletonCalss="w-36 h-3 rounded-md"
             >
-              <p className="font-base mb-2 text-indigo-500 text-md ">
+              <p className="mb-2 text-indigo-500 text-md ">
                 {data.category?.title}
               </p>
             </DataSkeleton>
@@ -37,7 +37,7 @@ export const BlogCard = (data: BlogInterface) => {
               skeletonData={data.title}
               skeletonCalss="w-36 h-8 rounded-md space-y-3"
             >
-              <p className="text-gray-800 dark:text-white text-xl font-medium mb-2">
+              <p className="text-gray-800 dark:text-white text-md md:text-lg mb-2">
                 {data?.title}
               </p>
             </DataSkeleton>
@@ -47,7 +47,7 @@ export const BlogCard = (data: BlogInterface) => {
               skeletonRows={2}
               skeletonRowCalss="space-y-2"
             >
-              <p className="text-gray-400 dark:text-gray-300 font-light text-md">
+              <p className="text-gray-400 dark:text-gray-300 text-xs md:text-sm">
                 {data?.description}
               </p>
             </DataSkeleton>
@@ -68,18 +68,18 @@ export const BlogCard = (data: BlogInterface) => {
               <div className="flex flex-col justify-between mr-4 text-sm  space-y-2">
                 <DataSkeleton
                   skeletonData={data.writer ? data.writer.name : undefined}
-                  skeletonCalss="w-20 h-4 rounded-md"
+                  skeletonCalss="w-20 h-2 rounded-md"
                 >
-                  <p className="text-gray-800 dark:text-white h-4">
+                  <p className="text-gray-800 dark:text-white h-2 text-xs">
                     {data.writer?.name}
                   </p>
                 </DataSkeleton>
 
                 <DataSkeleton
                   skeletonData={data.date}
-                  skeletonCalss="w-24 h-3 rounded-md"
+                  skeletonCalss="w-24 h-2 rounded-md"
                 >
-                  <p className="text-gray-400 dark:text-gray-300 h-3">
+                  <p className="text-gray-400 dark:text-gray-300 h-2 text-xs">
                     {data.date}
                   </p>
                 </DataSkeleton>

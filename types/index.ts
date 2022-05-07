@@ -49,3 +49,7 @@ export interface ImageSkeletonTypes {
   skeletonCalss?: string;
   children?: React.ReactNode
 }
+
+export type Props = {
+  children: React.ReactNode;
+};
