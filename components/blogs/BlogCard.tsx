@@ -8,7 +8,7 @@ export const BlogCard = (data: BlogInterface) => {
   // console.log(data);
   return (
     <div className="overflow-hidden shadow-md hover:shadow-lg rounded-xl md:rounded-3xl h-90 w-full cursor-pointer m-auto">
-      <Link href="/blogs/[slug]" as={`/blogs/${data.slug}`}>
+      <Link href="/blogs/[slug]" as={`/blogs/${data.slug}`} passHref >
         <div className="w-full block h-full">
           <ImageSkeleton
             image={data.image}

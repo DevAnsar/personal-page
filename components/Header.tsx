@@ -13,7 +13,7 @@ const Header = () => {
               role="button"
             />
 
-            <Link href="/">
+            <Link href="/" passHref>
               <div className="px-4 mx-4 text-gray-900 dark:text-gray-300 cursor-pointer">
                 انصار میرزایی
               </div>

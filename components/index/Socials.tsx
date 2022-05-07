@@ -38,6 +38,7 @@ const Socials = () => {
         target="_blank"
         href="https://github.com/DevAnsar"
         title="اکانت گیت هاب"
+        rel="noreferrer" 
       >
         <svg
           fill="currentColor"

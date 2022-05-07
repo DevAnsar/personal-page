@@ -13,7 +13,7 @@ export const DataSkeleton = (props: DataSkeletonTypes) => {
     return (
       <div className={`${props.skeletonRowCalss}`}>
         {arr.map((r) => (
-          <div className={`bg-gray-300 animate-pulse ${props.skeletonCalss}`} />
+          <div key={r} className={`bg-gray-300 animate-pulse ${props.skeletonCalss}`} />
         ))}
       </div>
     );
