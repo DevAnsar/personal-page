@@ -1,6 +1,9 @@
 import React from "react";
 import { Job } from "./index";
 import { JobInterface } from "../../types";
+import { SwiperBreakpoint } from "../../config";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, A11y } from "swiper";
 
 const Jobs: React.FunctionComponent<{ jobs: JobInterface[] }> = ({ jobs }) => {
   return (
@@ -24,11 +27,23 @@ const Jobs: React.FunctionComponent<{ jobs: JobInterface[] }> = ({ jobs }) => {
           </button>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-12">
+      {/* <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-12 px-10 md:px-0"> */}
+      <Swiper
+        modules={[Pagination, A11y]}
+        spaceBetween={0}
+        slidesPerView={4}
+        pagination={{ clickable: true }}
+        onSlideChange={() => console.log("slide change")}
+        onSwiper={(swiper) => console.log(swiper)}
+        breakpoints={SwiperBreakpoint}
+      >
         {jobs?.map((job: JobInterface, index) => (
-          <Job key={index} job={job} />
+          <SwiperSlide key={index}>
+            <Job job={job} />
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
+      {/* </div> */}
     </div>
   );
 };

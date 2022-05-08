@@ -1,24 +1,28 @@
 import React from "react";
 import Link from "next/link";
-import { myConfig } from "../../config";
+import Image from "next/image";
+import { ImageLoader } from "../../config";
 import { BlogInterface } from "./../../types";
 import { DataSkeleton, ImageSkeleton } from "./Skeleton";
 
 export const BlogCard = (data: BlogInterface) => {
   // console.log(data);
   return (
-    <div className="overflow-hidden shadow-md hover:shadow-lg rounded-xl md:rounded-3xl h-90 w-full cursor-pointer m-auto">
-      <Link href="/blogs/[slug]" as={`/blogs/${data.slug}`} passHref >
+    <div className="overflow-hidden shadow-md hover:shadow-lg rounded-xl md:rounded-3xl h-90  cursor-pointer m-auto w-full">
+      <Link href="/blogs/[slug]" as={`/blogs/${data.slug}`} passHref>
         <div className="w-full block h-full">
           <ImageSkeleton
             image={data.image}
             skeletonCalss="w-full h-40 rounded-md"
           >
-            <img
-              alt="blog photo"
-              src={myConfig.Base_URL + data.image}
-              className="h-40 w-full object-cover"
-            />
+            <div className="h-40 w-full object-cover relative">
+              <Image
+                loader={ImageLoader}
+                alt="blog photo"
+                src={data.image}
+                layout="fill"
+              />
+            </div>
           </ImageSkeleton>
 
           <div className="bg-white dark:bg-gray-800 w-full p-4  space-y-2">
@@ -58,11 +62,15 @@ export const BlogCard = (data: BlogInterface) => {
                   image={data.writer?.image}
                   skeletonCalss="w-10 h-10 rounded-full"
                 >
-                  <img
+                  <div className="w-10 h-10 relative mx-auto object-cover rounded-full overflow-hidden">
+                  <Image
+                    loader={ImageLoader}
                     alt="blog photo"
-                    src={myConfig.Base_URL + data.writer?.image}
-                    className="mx-auto object-cover rounded-full h-10 w-10"
+                    src={data.writer?.image}
+                    layout="fill"
                   />
+                  </div>
+                  
                 </ImageSkeleton>
               </a>
               <div className="flex flex-col justify-between mr-4 text-sm  space-y-2">

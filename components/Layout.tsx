@@ -12,7 +12,7 @@ const Layout = ({ children }: Props) => {
 
       <div
         id="template"
-        className={`rtl w-full bg-gray-100 dark:bg-gray-700  duration-200`}
+        className={`rtl w-full bg-gray-100 dark:bg-gray-700  duration-100`}
       >
         <Header />
         <main className="max-w-screen-lg lg:max-w-screen-xl mx-auto px-6 sm:px-8 md:px-10 py-16">

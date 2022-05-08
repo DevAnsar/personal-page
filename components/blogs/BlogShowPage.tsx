@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 import { myConfig } from "../../config";
 import { BlogInterface } from "../../types";
 import { DataSkeleton, ImageSkeleton } from "./Skeleton";
@@ -8,7 +7,7 @@ const BlogShowPage = (data: BlogInterface) => {
   console.log(data);
   return (
     <div className="w-full">
-      <div className="w-full  flex justify-center mb-8 mt-10">
+      <div className="w-full  flex justify-center mb-8">
         <div className="overflow-hidden shadow-md max-w-md hover:shadow-lg rounded-xl md:rounded-3xl">
           <div className="w-full block h-full">
             <ImageSkeleton

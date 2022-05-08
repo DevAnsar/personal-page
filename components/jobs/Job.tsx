@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { myConfig } from "../../config";
+import { ImageLoader } from "../../config";
 import { JobInterface } from "../../types";
 
 const Job: React.FunctionComponent<{ job: JobInterface }> = ({ job }) => {
@@ -14,19 +14,21 @@ const Job: React.FunctionComponent<{ job: JobInterface }> = ({ job }) => {
       title={`${job.title} - ${job.domain}`}
     >
       <div className="shadow-md hover:shadow-lg rounded-2xl p-4 bg-white dark:bg-gray-800 relative overflow-hidden h-90 w-full cursor-pointer m-auto">
-        <img
-          alt=""
-          // job.image
-          // "https://images.unsplash.com/photo-1635002962487-2c1d4d2f63c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8ZGlnaXRhbCUyMGFydHxlbnwwfDJ8MHx8&auto=format&fit=crop&w=800&q=60"
-          
-          src={myConfig.Base_URL + job.image}
-          className="rounded-lg mb-4  w-100"
-        />
-        <div className="w-4/4">
-          <p className="text-gray-800 dark:text-white text-md md:text-lg font-medium mb-2">{job.title}</p>
+        <div className="w-full h-40 relative mb-2 rounded-md md:rounded-lg overflow-hidden">
+          <Image loader={ImageLoader} src={job.image} layout="fill" />
+        </div>
 
-          <p className="text-gray-600 dark:text-gray-300 text-xs md:text-sm">{job.domain}</p>
-          <p className="text-gray-600 dark:text-gray-300 text-xs md:text-sm">{job.description}</p>
+        <div className="w-4/4">
+          <p className="text-gray-800 dark:text-white text-md md:text-lg font-medium mb-2">
+            {job.title}
+          </p>
+
+          <p className="text-gray-600 dark:text-gray-300 text-xs md:text-sm">
+            {job.domain}
+          </p>
+          <p className="text-gray-600 dark:text-gray-300 text-xs md:text-sm">
+            {job.description}
+          </p>
           <p className="text-indigo-500  text-md font-medium mt-4">مشاهده</p>
         </div>
       </div>

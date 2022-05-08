@@ -2,114 +2,15 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { BlogCard } from "./BlogCard";
 import { BlogInterface } from "./../../types";
-import { myConfig } from "../../config";
+import { myConfig, SwiperBreakpoint } from "../../config";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, A11y } from "swiper";
 
 export const BlogsRow = () => {
-  // const blogs: BlogInterface[] = [
-  //   {
-  //     id: 1,
-  //     slug: "test-1",
-  //     title: "مقاله تست 1",
-  //     image: "/test.png",
-  //     date: "12 اسفند 1401",
-  //     description: "این مقاله درباره تاثیر خواب در عملکرد ...",
-  //     writer: {
-  //       id: 1,
-  //       name: "انصار میرزایی",
-  //     },
-  //   },
-  //   {
-  //     id: 2,
-  //     slug: "test-2",
-  //     title: "مقاله تست 2",
-  //     image: "/test.png",
-  //     date: "13 اسفند 1401",
-  //     description: "این مقاله درباره تاثیر بیداری در عملکرد ...",
-  //     writer: {
-  //       id: 1,
-  //       name: "انصار میرزایی",
-  //     },
-  //   },
-  //   {
-  //     id: 3,
-  //     slug: "test-2",
-  //     title: "مقاله تست 2",
-  //     image: "/test.png",
-  //     date: "13 اسفند 1401",
-  //     description: "این مقاله درباره تاثیر بیداری در عملکرد ...",
-  //     writer: {
-  //       id: 1,
-  //       name: "انصار میرزایی",
-  //     },
-  //   },
-  //   {
-  //     id: 3,
-  //     slug: "test-2",
-  //     title: "مقاله تست 2",
-  //     image: "/test.png",
-  //     date: "13 اسفند 1401",
-  //     description: "این مقاله درباره تاثیر بیداری در عملکرد ...",
-  //     writer: {
-  //       id: 1,
-  //       name: "انصار میرزایی",
-  //     },
-  //   },
-  // ];
-  const SkeletonData: BlogInterface[] = [
-    {
-      id: 1,
-      slug: undefined,
-      title: undefined,
-      image: undefined,
-      date: undefined,
-      description: undefined,
-      writer: undefined,
-      category: undefined,
-    },
-    {
-      id: 2,
-      slug: undefined,
-      title: undefined,
-      image: undefined,
-      date: undefined,
-      description: undefined,
-      writer: undefined,
-      category: undefined,
-    },
-    {
-      id: 3,
-      slug: undefined,
-      title: undefined,
-      image: undefined,
-      date: undefined,
-      description: undefined,
-      writer: undefined,
-      category: undefined,
-    },
-    {
-      id: 4,
-      slug: undefined,
-      title: undefined,
-      image: undefined,
-      date: undefined,
-      description: undefined,
-      writer: undefined,
-      category: undefined,
-    },
-  ];
-  const [row_blogs, setRowBlogs] = useState<BlogInterface[]>(SkeletonData);
+  const [row_blogs, setRowBlogs] = useState<BlogInterface[]>([]);
   useEffect(() => {
     handleGetData();
   }, []);
-
-  // const handleChangeShowType = (el: any) => {
-  //   console.log("status:", el.target.checked);
-  //   if (el.target.checked) {
-  //     setRowBlogs(blogs);
-  //   } else {
-  //     setRowBlogs(SkeletonData);
-  //   }
-  // };
 
   const handleGetData = async () => {
     try {
@@ -131,7 +32,6 @@ export const BlogsRow = () => {
       console.log("You have some error", e);
     }
   };
-
   return (
     <div className="w-full mt-20">
       <div className="header flex flex-col md:flex-row  md:justify-between mb-12">
@@ -144,7 +44,7 @@ export const BlogsRow = () => {
           </p>
         </div>
         <div className="text-end">
-          <Link href="/blogs" passHref > 
+          <Link href="/blogs" passHref>
             <button
               className="flex-shrink-0 px-4 py-2 text-sm md:text-base mt-5 md:mt-1 text-gray-100 font-semibold  bg-blue-600 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-blue-200"
               type="submit"
@@ -154,12 +54,33 @@ export const BlogsRow = () => {
           </Link>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-12">
-        <BlogCard {...row_blogs[0]} />
-        <BlogCard {...row_blogs[1]} />
-        <BlogCard {...row_blogs[2]} />
-        <BlogCard {...row_blogs[3]} />
-      </div>
+      <Swiper
+        modules={[Pagination, A11y]}
+        spaceBetween={0}
+        slidesPerView={4}
+        pagination={{
+          clickable: true,
+          // renderBullet: function (index, className) {
+          //   return '<span class="' + className + '">' + index + "</span>";
+          // },
+        }}
+        onSlideChange={() => console.log("slide change")}
+        onSwiper={(swiper) => console.log(swiper)}
+        breakpoints={SwiperBreakpoint}
+      >
+        <SwiperSlide>
+          <BlogCard {...row_blogs[0]} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <BlogCard {...row_blogs[1]} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <BlogCard {...row_blogs[2]} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <BlogCard {...row_blogs[3]} />
+        </SwiperSlide>
+      </Swiper>
     </div>
   );
 };

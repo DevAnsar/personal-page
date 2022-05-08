@@ -1,4 +1,5 @@
-import { DataSkeletonTypes,ImageSkeletonTypes } from "../../types";
+import { DataSkeletonTypes, ImageSkeletonTypes } from "../../types";
+import Image from 'next/image';
 
 export const DataSkeleton = (props: DataSkeletonTypes) => {
   const getSelectons = () => {
@@ -8,19 +9,23 @@ export const DataSkeleton = (props: DataSkeletonTypes) => {
     } else {
       rows = 1;
     }
-    let arr=[];
-    for(let i=0;i<rows;i++) {arr[i]=i}
+    let arr = [];
+    for (let i = 0; i < rows; i++) {
+      arr[i] = i;
+    }
     return (
       <div className={`${props.skeletonRowCalss}`}>
         {arr.map((r) => (
-          <div key={r} className={`bg-gray-300 animate-pulse ${props.skeletonCalss}`} />
+          <div
+            key={r}
+            className={`bg-gray-300 animate-pulse ${props.skeletonCalss}`}
+          />
         ))}
       </div>
     );
   };
   // console.log('props.skeletonData',props.skeletonData);
   return (
-
     <>
       {props.skeletonData === undefined && getSelectons()}
       {props.skeletonData === null && <></>}
@@ -33,24 +38,24 @@ export const DataSkeleton = (props: DataSkeletonTypes) => {
 
 export const ImageSkeleton = (props: ImageSkeletonTypes) => {
   const getSelectons = () => {
-    return <div className={`bg-gray-300 animate-pulse ${props.skeletonCalss}`} />
-  
+    return (
+      <div className={`bg-gray-300 animate-pulse ${props.skeletonCalss}`} />
+    );
   };
 
   return (
-
     <>
       {props.image === undefined && getSelectons()}
       {props.image === null && (
-        <img
-        alt="blog photo"
-        src="https://images.unsplash.com/photo-1635002962487-2c1d4d2f63c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8ZGlnaXRhbCUyMGFydHxlbnwwfDJ8MHx8&auto=format&fit=crop&w=800&q=60"
-        className="max-h-40 w-full object-cover"
-      />
+        <div className="w-full h-40 relative">
+          <Image
+            alt="blog photo"
+            src="https://images.unsplash.com/photo-1635002962487-2c1d4d2f63c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8ZGlnaXRhbCUyMGFydHxlbnwwfDJ8MHx8&auto=format&fit=crop&w=800&q=60"
+            layout="fill"
+          />
+        </div>
       )}
-      {props.image !== undefined &&
-        props.image !== null &&
-        props.children}
+      {props.image !== undefined && props.image !== null && props.children}
     </>
   );
 };

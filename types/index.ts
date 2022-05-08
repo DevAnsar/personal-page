@@ -15,7 +15,7 @@ export interface JobInterface {
 export interface WriterUserInterface {
   id: number;
   name: string;
-  image?: string;
+  image: string;
 }
 
 export interface CategoryInterface {
@@ -23,16 +23,16 @@ export interface CategoryInterface {
   title: string;
 }
 export interface BlogInterface {
-  id: number | undefined;
-  slug: string | undefined;
-  url?: string | undefined;
-  title: string | undefined;
-  image: string | undefined;
-  description: string | undefined;
-  body?: string | undefined;
-  writer: WriterUserInterface | undefined;
-  date: string | undefined;
-  category: CategoryInterface | undefined,
+  id: number;
+  slug: string;
+  url?: string;
+  title: string;
+  image: string ;
+  description: string;
+  body?: string;
+  writer: WriterUserInterface;
+  date: string;
+  category: CategoryInterface,
 }
 
 export interface DataSkeletonTypes {
@@ -53,3 +53,11 @@ export interface ImageSkeletonTypes {
 export type Props = {
   children: React.ReactNode;
 };
+
+export interface AppConfigInterface {
+  Base_URL: string;
+  API_URL: String;
+}
+export interface ImageLoaderPropsInterface {
+  src: string;
+}

@@ -2,9 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['http://localhost:8000'],
+    domains: ["https://server.ansarmirzayi.ir"],
   },
-}
+};
 
-
-module.exports = nextConfig
+module.exports = nextConfig;
