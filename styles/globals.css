@@ -28,9 +28,11 @@ a {
   .name-title {
     font-size: 1.1rem !important;
   }
+
   .name-label {
     font-size: 0.7rem !important;
   }
+
   .skill-icons {
     width: 18px;
   }
@@ -41,9 +43,11 @@ a {
   .name-title {
     font-size: 1.2rem !important;
   }
+
   .name-label {
     font-size: 0.8rem !important;
   }
+
   .skill-icons {
     width: 20px;
   }
@@ -54,9 +58,11 @@ a {
   .name-title {
     font-size: 1.7rem;
   }
+
   .name-label {
     font-size: 1rem !important;
   }
+
   .skill-icons {
     width: 20px;
   }
@@ -67,9 +73,11 @@ a {
   .name-title {
     font-size: 2.3rem;
   }
+
   .name-label {
     font-size: 1rem !important;
   }
+
   .skill-icons {
     width: 25px;
   }
@@ -80,9 +88,11 @@ a {
   .name-title {
     font-size: 2.3rem !important;
   }
+
   .name-label {
     font-size: 1rem !important;
   }
+
   .skill-icons {
     width: 27px;
   }
@@ -93,9 +103,11 @@ a {
   .name-title {
     font-size: 2.5rem !important;
   }
+
   .name-label {
     font-size: 1rem !important;
   }
+
   .skill-icons {
     width: 28px;
   }
@@ -104,9 +116,11 @@ a {
 a:hover {
   text-decoration: none !important;
 }
+
 a:link {
   text-decoration: none !important;
 }
+
 #template {
   /* background-color: rgb(60 65 64 / 31%); */
   min-height: 100vh;
@@ -169,16 +183,18 @@ a:link {
   display: flex;
   align-items: center;
 }
-.footer-row{
+
+.footer-row {
 
   display: flex;
   justify-content: space-between;
 }
+
 .footer-list {
   margin-bottom: 0;
   list-style: none;
   padding-right: 0;
-  display : flex;
+  display: flex;
   align-items: center;
 }
 
@@ -209,6 +225,7 @@ a:link {
   transition-timing-function: linear;
   transition-delay: 0.01s;
 }
+
 #jox-box.active {
   min-height: 390px;
   /*max-height: 390px;*/
@@ -218,6 +235,7 @@ a:link {
   float: left;
   cursor: pointer;
 }
+
 p {
   margin-bottom: 1px !important;
 }
@@ -225,15 +243,19 @@ p {
 .min-h-25 {
   min-height: 25px !important;
 }
+
 .min-h-30 {
   min-height: 30px !important;
 }
+
 .min-h-35 {
   min-height: 35px !important;
 }
+
 .min-h-50 {
   min-height: 50px !important;
 }
+
 .max-h-300 {
   max-height: 300px !important;
 }
@@ -243,6 +265,7 @@ p {
   color: #fff;
   white-space: nowrap;
 }
+
 .center-line {
   display: flex;
   flex-direction: row;
@@ -251,8 +274,13 @@ p {
   align-items: center;
   align-content: stretch;
 }
+
 .information {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.swiper-wrapper {
+  padding-bottom: 50px;
 }

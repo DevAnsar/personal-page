@@ -29,7 +29,9 @@ const Job: React.FunctionComponent<{ job: JobInterface }> = ({ job }) => {
           <p className="text-gray-600 dark:text-gray-300 text-xs md:text-sm">
             {job.description}
           </p>
-          <p className="text-indigo-500  text-md font-medium mt-4">مشاهده</p>
+          <div className="flex justify-end">
+            <p className="text-white bg-blue-500  text-md text-sm mt-4 rounded-md px-3 py-1">مشاهده</p>
+          </div>
         </div>
       </div>
     </a>

@@ -14,7 +14,7 @@ const Skills = () => {
     <div className="flex">
       <a
         href="https://www.php.net/"
-        className="ms-2 me-1 skill-icons"
+        className="ml-2 mr-1 skill-icons"
         title="php"
       >
         <Image width="25px" height="25px" alt="php" src={PhpIcon} />
